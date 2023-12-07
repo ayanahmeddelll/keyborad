@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+
+
+    <input type="text" id="result" >
+    <div class="container">
+        
+        
+        <div class="row one">
+            <button id="key`" onclick="append(' ~')">~</button>
+            <button id="key1" onclick="append('1')" >1</button>
+            <button id="key2" onclick="appendToResult(' 2')">2</button>
+            <button id="key3" onclick="append('3')">3</button>
+            <button id="key4" onclick="append('4')">4</button>
+            <button id="key5" onclick="append('5')">5</button>
+            <button id="key6" onclick="append('6')">6</button>
+            <button id="key7" onclick="append('7')">7</button>
+            <button id="key8" onclick="append('8')">8</button>
+            <button id="key9" onclick="append('9')">9</button>
+            <button id="key0" onclick="append('0')">0</button>
+            <button id="key-" onclick="append('-')">-</button>
+            <button id="key=" onclick="append('=')">=</button>
+            <button class="back key" id="keyBackspace" onclick="clearResult()"  >Backspace</button>
+        </div>
+        <div class="row two">
+            <button class="tab key" id="keyTab" onclick="append('tab')">Tab</button>
+            <button id="keyQ" onclick="append('Q')">Q</button>
+            <button id="keyW" onclick="append('W')">W</button>
+            <button id="keyE" onclick="append('E')">E</button>
+            <button id="keyR" onclick="append('R')">R</button>
+            <button id="keyT" onclick="append('T')">T</button>
+            <button id="keyY" onclick="append('Y')">Y</button>
+            <button id="keyU" onclick="append('U')">U</button>
+            <button id="keyI" onclick="append('I')">I</button>
+            <button id="keyO" onclick="append('O')">O</button>
+            <button id="keyP" onclick="append('P')">P</button>
+            <button id="key[" onclick="append('[')">[</button>
+            <button id="key]" onclick="append(']')">]</button>
+            <button class='slace' id="key\" onclick="append('/')">\</button>
+    </div>
+    <div class="row three">
+        <button class='cap key ' id="keyCapsLock" onclick="append('POTOT')">cap</button>
+        <button id="keyA" onclick="append('A')" >A</button>
+        <button id="keyS" onclick="append('S')">S</button>
+        <button id="keyD" onclick="append('D')">D</button>
+        <button id="keyF">F</button>
+        <button id="keyG">G</button>
+        <button id="keyH">H</button>
+        <button id="keyJ">J</button>
+        <button id="keyK">K</button>
+        <button id="keyL">L</button>
+        <button id="key;">;</button>
+        <button id="key'">'</button>
+        <button class='enter-btn key' id="keyEnter">Enter</button>
+    </div>
+    <div class="row four">
+        <button class="shift key" id="keyShift">Shift</button>
+        <button id="keyZ">Z</button>
+        <button id="keyX">X</button>
+        <button id="keyC">C</button>
+        <button id="keyV">V</button>
+        <button id="keyB">B</button>
+        <button id="keyN">N</button>
+        <button id="keyM">M</button>
+        <button id="key<"><</button>
+        <button id="key>">></button>
+        <button id="key/">/</button>
+        <button class="shift key" id="keyShift">Shift</button>
+    </div>
+    <div class="row five">
+        <button class="other key" id="keyCtrl">ctrl</button>
+        <!-- <button class="other">fn</button> -->
+        <button class="other key" id="keyz">win</button>
+        <button class="other key" id="keyAlt">Alt</button>
+        <button class="space key" id="keySpace">space</button>
+        <button class="other key" id="">win</button>
+        <button class="other key" id="keyCtrl">ctrl</button>
+        <button class="other key" id="keyCtrl">ctrl</button>
+    </div>
+    </div>
+    
+ 
+</body>
+<script>
+    document.addEventListener('keydown', function(event) {
+    const key = event.key.toUpperCase(); // Convert to uppercase to match button IDs
+    const button = document.getElementById('key' + key);
+    if (button) {
+        button.classList.add('active');
+    }
+});
+
+document.addEventListener('keyup', function(event) {
+    const key = event.key.toUpperCase(); // Convert to uppercase to match button IDs
+    const button = document.getElementById('key' + key);
+    if (button) {
+        button.classList.remove('active');
+    }
+});
+document.addEventListener('keydown', function(event) {
+    let keyId;
+
+    switch(event.key) {
+        case 'Backspace':
+            keyId = 'keyBackspace';
+            break;
+        case 'Enter':
+            keyId = 'keyEnter';
+            break;
+        case 'Tab':
+            keyId = 'keyTab';
+            break;
+        case 'CapsLock':
+            keyId = 'keyCapsLock';
+            break;
+        case 'Shift':
+            keyId = 'keyShift';
+            break;
+        case 'Control':
+            keyId = 'keyCtrl';
+            break;
+
+            case ' ':
+            keyId = 'keySpace'; // Handle Space key
+            break;
+
+        default:
+            keyId = 'key' + event.key.toUpperCase();
+    }
+
+    const button = document.getElementById(keyId);
+    if (button) {
+        button.classList.add('active');
+    }
+});
+
+document.addEventListener('keyup', function(event) {
+    let keyId;
+
+    switch(event.key) {
+        case 'Backspace':
+            keyId = 'keyBackspace';
+            break;
+        case 'Enter':
+            keyId = 'keyEnter';
+            break;
+        case 'Tab':
+            keyId = 'keyTab';
+            break;
+        case 'CapsLock':
+            keyId = 'keyCapsLock';
+            break;
+        case 'Shift':
+            keyId = 'keyShift';
+            break;
+        case 'Control':
+            keyId = 'keyCtrl';
+            break;
+        default:
+            keyId = 'key' + event.key.toUpperCase();
+    }
+
+    const button = document.getElementById(keyId);
+    if (button) {
+        button.classList.remove('active');
+    }
+});
+
+let result = document.getElementById('result');
+let expression = '';
+
+function append(value) {
+  expression += value;
+  result.value = expression;  
+}
+function clearResult() {
+    expression = '';
+    result.value = '';
+  }
+
+
+</script>
+</html> 
